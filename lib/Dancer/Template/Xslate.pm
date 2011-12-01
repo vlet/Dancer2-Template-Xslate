@@ -21,7 +21,7 @@ sub BUILD {
 
     my $config = { %{ $self->config } };
     if ( !exists $config->{path} ) {
-        $config->{path} = $self->views,;
+        $config->{path} = $self->views;
     }
     $self->engine( Text::Xslate->new(%$config) );
 }
