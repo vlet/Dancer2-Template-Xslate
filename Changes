@@ -1,0 +1,6 @@
+Revision history for Perl extension Dancer::Template::Xslate.
+
+0.010  Thu Dec  1 12:02:43 2011
+	- original version; created by h2xs 1.23 with options
+		-AX -b 5.8.9 -n Dancer::Template::Xslate -v 0.010
+
