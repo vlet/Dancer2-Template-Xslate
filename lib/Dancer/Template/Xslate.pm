@@ -4,26 +4,25 @@ use strict;
 use warnings;
 use Carp;
 use Moo;
-use Dancer::Moo::Types;
+use Dancer::Core::Types;
 use Text::Xslate;
 
-our $VERSION = "0.010";
+our $VERSION = "0.020";
 
 with 'Dancer::Core::Role::Template';
 
-has engine => (
-    is  => 'rw',
-    isa => sub { ObjectOf( 'Text::Xslate', @_ ) },
-);
+has '+engine' => ( isa => InstanceOf ['Text::Xslate'], );
 
-sub BUILD {
-    my ($self) = @_;
+sub _build_name { 'Xslate' }
+
+sub _build_engine {
+    my $self = shift;
 
     my $config = { %{ $self->config } };
     if ( !exists $config->{path} ) {
         $config->{path} = $self->views;
     }
-    $self->engine( Text::Xslate->new(%$config) );
+    return Text::Xslate->new(%$config);
 }
 
 sub render {
