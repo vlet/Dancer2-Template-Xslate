@@ -15,8 +15,9 @@ subtest 'new' => sub {
 
 subtest 'render' => sub {
     my $xs = Dancer::Template::Xslate->new(
-        views  => File::Spec->catfile( $Bin, 'views' ),
-        layout => 'main.tt',
+        views            => File::Spec->catfile( $Bin, 'views' ),
+        layout           => 'main.tt',
+        default_tmpl_ext => 'tt'
     );
 
     is $xs->process(
