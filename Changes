@@ -1,5 +1,9 @@
 Revision history for Perl extension Dancer::Template::Xslate.
 
+0.030  Mon Dec 10 14:25:56 2012
+    - fixed bug GH#1 (thanx to burnersk for report)
+    - .tx now is default template extension
+
 0.020  Tue Nov 20 16:24:12 2012
 	- updated to current Dancer2 snapshot
 
